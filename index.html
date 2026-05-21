@@ -1,3 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Weekly Test - Basics to If Condition</title>
+
+    <style>
+/* ================= GOOGLE FONT ================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ================= GLOBAL ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    background:linear-gradient(135deg, #0f172a, #1e293b);
+    min-height:100vh;
+    padding:40px;
+    color:white;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    background:#ffffff;
+    color:#111827;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    background:linear-gradient(135deg, #2563eb, #7c3aed);
+    padding:40px;
+    text-align:center;
+    color:white;
+}
+
+.header h1{
+    font-size:42px;
+    margin-bottom:10px;
+    font-weight:700;
+}
+
+.header p{
+    font-size:18px;
+    opacity:0.9;
+}
+
+/* ================= TEST INFO ================= */
+
+.test-info{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    background:#f8fafc;
+    padding:20px;
+    border-bottom:1px solid #e2e8f0;
+}
+
+.info-box{
+    text-align:center;
+    margin:10px;
+}
+
+.info-box h3{
+    color:#2563eb;
+    margin-bottom:5px;
+}
+
+/* ================= SECTION TITLE ================= */
+
+.section-title{
+    margin:35px 30px 20px;
+    padding:14px 20px;
+    background:linear-gradient(to right, #2563eb, #7c3aed);
+    color:white;
+    border-radius:12px;
+    font-size:22px;
+    font-weight:600;
+    box-shadow:0 5px 15px rgba(37,99,235,0.2);
+}
+
+/* ================= QUESTIONS ================= */
+
+.question{
+    background:#f8fafc;
+    margin:25px 30px;
+    padding:25px;
+    border-radius:16px;
+    border:2px solid transparent;
+    transition:0.3s ease;
+}
+
+.question:hover{
+    border-color:#2563eb;
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(37,99,235,0.1);
+}
+
+.question h3{
+    margin-bottom:18px;
+    font-size:20px;
+    color:#111827;
+    line-height:1.5;
+}
+
+/* ================= CODE BLOCK ================= */
+
+pre{
+    background:#0f172a;
+    color:#f8fafc;
+    padding:15px;
+    border-radius:10px;
+    margin:15px 0;
+    overflow-x:auto;
+    font-size:15px;
+}
+
+/* ================= OPTIONS ================= */
+
+.option{
+    display:flex;
+    align-items:center;
+    margin:12px 0;
+    padding:14px;
+    border-radius:12px;
+    background:white;
+    border:2px solid #e2e8f0;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.option:hover{
+    background:#eff6ff;
+    border-color:#2563eb;
+}
+
+.option input{
+    margin-right:12px;
+    transform:scale(1.2);
+    accent-color:#2563eb;
+}
+
+.option span{
+    font-size:16px;
+}
+
+/* ================= BUTTON ================= */
+
+.submit-btn{
+    display:block;
+    width:260px;
+    margin:40px auto;
+    padding:16px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(135deg, #2563eb, #7c3aed);
+    color:white;
+    font-size:20px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 8px 20px rgba(37,99,235,0.3);
+}
+
+.submit-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(37,99,235,0.4);
+}
+
+/* ================= RESULT ================= */
+
+#result{
+    padding:30px;
+}
+
+.result-box{
+    background:linear-gradient(135deg, #dcfce7, #bbf7d0);
+    border:3px solid #22c55e;
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(34,197,94,0.2);
+}
+
+.result-box h2{
+    color:#065f46;
+    margin-bottom:20px;
+    font-size:34px;
+}
+
+.result-box p{
+    font-size:22px;
+    margin:12px 0;
+    color:#064e3b;
+    font-weight:600;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .header h1{
+        font-size:30px;
+    }
+
+    .question{
+        margin:20px 15px;
+        padding:20px;
+    }
+
+    .section-title{
+        margin:25px 15px 15px;
+    }
+
+    .submit-btn{
+        width:90%;
+    }
+}
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Python Weekly Test</h1>
+
+    <div class="info">
+        <p><strong>Total Questions:</strong> 30</p>
+        <p><strong>Topics:</strong> Python Basics, Variables, Datatypes, Input, Operators, If Condition</p>
+    </div>
+
+    <form id="quizForm">
+
+        <!-- ================= BASICS ================= -->
+
+        <div class="section">Part 1 — Python Basics</div>
+
+        <div class="question">
+            <h3>1. Python is a ______ programming language.</h3>
+
+            <label><input type="radio" name="q1" value="a"> Low level</label>
+            <label><input type="radio" name="q1" value="b"> High level</label>
+            <label><input type="radio" name="q1" value="c"> Machine</label>
+            <label><input type="radio" name="q1" value="d"> Binary</label>
+        </div>
+
+        <div class="question">
+            <h3>2. Which function is used to display output?</h3>
+
+            <label><input type="radio" name="q2" value="a"> input()</label>
+            <label><input type="radio" name="q2" value="b"> display()</label>
+            <label><input type="radio" name="q2" value="c"> print()</label>
+            <label><input type="radio" name="q2" value="d"> show()</label>
+        </div>
+
+        <div class="question">
+            <h3>3. What is the datatype of:</h3>
+
+            <pre>x = 5.7</pre>
+
+            <label><input type="radio" name="q3" value="a"> int</label>
+            <label><input type="radio" name="q3" value="b"> str</label>
+            <label><input type="radio" name="q3" value="c"> bool</label>
+            <label><input type="radio" name="q3" value="d"> float</label>
+        </div>
+
+        <div class="question">
+            <h3>4. Which variable name is correct?</h3>
+
+            <label><input type="radio" name="q4" value="a"> 1name</label>
+            <label><input type="radio" name="q4" value="b"> my-name</label>
+            <label><input type="radio" name="q4" value="c"> student_name</label>
+            <label><input type="radio" name="q4" value="d"> class</label>
+        </div>
+
+        <div class="question">
+            <h3>5. What is the output?</h3>
+
+            <pre>print(type("Ali"))</pre>
+
+            <label><input type="radio" name="q5" value="a"> int</label>
+            <label><input type="radio" name="q5" value="b"> float</label>
+            <label><input type="radio" name="q5" value="c"> str</label>
+            <label><input type="radio" name="q5" value="d"> bool</label>
+        </div>
+
+        <div class="question">
+            <h3>6. Which function converts data into integer?</h3>
+
+            <label><input type="radio" name="q6" value="a"> float()</label>
+            <label><input type="radio" name="q6" value="b"> int()</label>
+            <label><input type="radio" name="q6" value="c"> str()</label>
+            <label><input type="radio" name="q6" value="d"> bool()</label>
+        </div>
+
+        <div class="question">
+            <h3>7. What is the output?</h3>
+
+            <pre>print(int(4.9))</pre>
+
+            <label><input type="radio" name="q7" value="a"> 5</label>
+            <label><input type="radio" name="q7" value="b"> 4.9</label>
+            <label><input type="radio" name="q7" value="c"> 4</label>
+            <label><input type="radio" name="q7" value="d"> Error</label>
+        </div>
+
+        <div class="question">
+            <h3>8. Which function takes input from the user?</h3>
+
+            <label><input type="radio" name="q8" value="a"> print()</label>
+            <label><input type="radio" name="q8" value="b"> input()</label>
+            <label><input type="radio" name="q8" value="c"> show()</label>
+            <label><input type="radio" name="q8" value="d"> scan()</label>
+        </div>
+
+        <div class="question">
+            <h3>9. What is the datatype of True?</h3>
+
+            <label><input type="radio" name="q9" value="a"> int</label>
+            <label><input type="radio" name="q9" value="b"> bool</label>
+            <label><input type="radio" name="q9" value="c"> float</label>
+            <label><input type="radio" name="q9" value="d"> string</label>
+        </div>
+
+        <div class="question">
+            <h3>10. Which symbol is used for comments in Python?</h3>
+
+            <label><input type="radio" name="q10" value="a"> // </label>
+            <label><input type="radio" name="q10" value="b"> /* */</label>
+            <label><input type="radio" name="q10" value="c"> #</label>
+            <label><input type="radio" name="q10" value="d"> --</label>
+        </div>
+
+        <!-- ================= OPERATORS ================= -->
+
+        <div class="section">Part 2 — Operators</div>
+
+        <div class="question">
+            <h3>11. What is the output?</h3>
+
+            <pre>print(10 + 5 * 2)</pre>
+
+            <label><input type="radio" name="q11" value="a"> 30</label>
+            <label><input type="radio" name="q11" value="b"> 20</label>
+            <label><input type="radio" name="q11" value="c"> 25</label>
+            <label><input type="radio" name="q11" value="d"> 15</label>
+        </div>
+
+        <div class="question">
+            <h3>12. What is the output?</h3>
+
+            <pre>print(17 % 3)</pre>
+
+            <label><input type="radio" name="q12" value="a"> 5</label>
+            <label><input type="radio" name="q12" value="b"> 2</label>
+            <label><input type="radio" name="q12" value="c"> 1</label>
+            <label><input type="radio" name="q12" value="d"> 17</label>
+        </div>
+
+        <div class="question">
+            <h3>13. Which operator is used for power?</h3>
+
+            <label><input type="radio" name="q13" value="a"> *</label>
+            <label><input type="radio" name="q13" value="b"> **</label>
+            <label><input type="radio" name="q13" value="c"> //</label>
+            <label><input type="radio" name="q13" value="d"> %</label>
+        </div>
+
+        <div class="question">
+            <h3>14. What is the output?</h3>
+
+            <pre>print(20 // 6)</pre>
+
+            <label><input type="radio" name="q14" value="a"> 3</label>
+            <label><input type="radio" name="q14" value="b"> 3.3</label>
+            <label><input type="radio" name="q14" value="c"> 2</label>
+            <label><input type="radio" name="q14" value="d"> 4</label>
+        </div>
+
+        <div class="question">
+            <h3>15. What is the output?</h3>
+
+            <pre>print(5 == "5")</pre>
+
+            <label><input type="radio" name="q15" value="a"> True</label>
+            <label><input type="radio" name="q15" value="b"> False</label>
+            <label><input type="radio" name="q15" value="c"> Error</label>
+            <label><input type="radio" name="q15" value="d"> None</label>
+        </div>
+
+        <div class="question">
+            <h3>16. What is the output?</h3>
+
+            <pre>print(True and False)</pre>
+
+            <label><input type="radio" name="q16" value="a"> True</label>
+            <label><input type="radio" name="q16" value="b"> False</label>
+            <label><input type="radio" name="q16" value="c"> Error</label>
+            <label><input type="radio" name="q16" value="d"> None</label>
+        </div>
+
+        <div class="question">
+            <h3>17. What is the output?</h3>
+
+            <pre>x = 5
+x += 2
+print(x)</pre>
+
+            <label><input type="radio" name="q17" value="a"> 5</label>
+            <label><input type="radio" name="q17" value="b"> 2</label>
+            <label><input type="radio" name="q17" value="c"> 7</label>
+            <label><input type="radio" name="q17" value="d"> Error</label>
+        </div>
+
+        <div class="question">
+            <h3>18. Which operator means "not equal to"?</h3>
+
+            <label><input type="radio" name="q18" value="a"> ==</label>
+            <label><input type="radio" name="q18" value="b"> =</label>
+            <label><input type="radio" name="q18" value="c"> !=</label>
+            <label><input type="radio" name="q18" value="d"> >=</label>
+        </div>
+
+        <div class="question">
+            <h3>19. What is the output?</h3>
+
+            <pre>print(not(True))</pre>
+
+            <label><input type="radio" name="q19" value="a"> True</label>
+            <label><input type="radio" name="q19" value="b"> False</label>
+            <label><input type="radio" name="q19" value="c"> Error</label>
+            <label><input type="radio" name="q19" value="d"> None</label>
+        </div>
+
+        <div class="question">
+            <h3>20. What is the output?</h3>
+
+            <pre>print(2 * "Hi")</pre>
+
+            <label><input type="radio" name="q20" value="a"> HiHi</label>
+            <label><input type="radio" name="q20" value="b"> Hi2</label>
+            <label><input type="radio" name="q20" value="c"> Error</label>
+            <label><input type="radio" name="q20" value="d"> 4</label>
+        </div>
+
+        <!-- ================= IF CONDITIONS ================= -->
+
+        <div class="section">Part 3 — If Conditions</div>
+
+        <div class="question">
+            <h3>21. What is the output?</h3>
+
+            <pre>x = 7
+
+if x > 5:
+    print("Yes")</pre>
+
+            <label><input type="radio" name="q21" value="a"> Yes</label>
+            <label><input type="radio" name="q21" value="b"> No</label>
+            <label><input type="radio" name="q21" value="c"> Error</label>
+            <label><input type="radio" name="q21" value="d"> Nothing</label>
+        </div>
+
+        <div class="question">
+            <h3>22. What is the output?</h3>
+
+            <pre>x = 2
+
+if x > 5:
+    print("Big")</pre>
+
+            <label><input type="radio" name="q22" value="a"> Big</label>
+            <label><input type="radio" name="q22" value="b"> 2</label>
+            <label><input type="radio" name="q22" value="c"> Nothing</label>
+            <label><input type="radio" name="q22" value="d"> Error</label>
+        </div>
+
+        <div class="question">
+            <h3>23. Which statement is used for decision making?</h3>
+
+            <label><input type="radio" name="q23" value="a"> loop</label>
+            <label><input type="radio" name="q23" value="b"> if</label>
+            <label><input type="radio" name="q23" value="c"> print</label>
+            <label><input type="radio" name="q23" value="d"> input</label>
+        </div>
+
+        <div class="question">
+            <h3>24. What is the output?</h3>
+
+            <pre>x = 10
+
+if x >= 10:
+    print("Correct")</pre>
+
+            <label><input type="radio" name="q24" value="a"> Correct</label>
+            <label><input type="radio" name="q24" value="b"> Wrong</label>
+            <label><input type="radio" name="q24" value="c"> 10</label>
+            <label><input type="radio" name="q24" value="d"> Error</label>
+        </div>
+
+        <div class="question">
+            <h3>25. What is the output?</h3>
+
+            <pre>x = 9
+
+if x % 2 == 0:
+    print("Even")</pre>
+
+            <label><input type="radio" name="q25" value="a"> Even</label>
+            <label><input type="radio" name="q25" value="b"> Odd</label>
+            <label><input type="radio" name="q25" value="c"> Nothing</label>
+            <label><input type="radio" name="q25" value="d"> Error</label>
+        </div>
+
+        <div class="question">
+            <h3>26. What is the output?</h3>
+
+            <pre>x = 15
+
+if x > 10 and x < 20:
+    print("Valid")</pre>
+
+            <label><input type="radio" name="q26" value="a"> Valid</label>
+            <label><input type="radio" name="q26" value="b"> Invalid</label>
+            <label><input type="radio" name="q26" value="c"> Error</label>
+            <label><input type="radio" name="q26" value="d"> Nothing</label>
+        </div>
+
+        <div class="question">
+            <h3>27. What is the output?</h3>
+
+            <pre>x = 5
+
+if x < 3:
+    print("A")
+
+if x > 3:
+    print("B")</pre>
+
+            <label><input type="radio" name="q27" value="a"> A</label>
+            <label><input type="radio" name="q27" value="b"> B</label>
+            <label><input type="radio" name="q27" value="c"> A B</label>
+            <label><input type="radio" name="q27" value="d"> Nothing</label>
+        </div>
+
+        <div class="question">
+            <h3>28. What is the output?</h3>
+
+            <pre>x = 12
+
+if x > 5:
+    print(x)</pre>
+
+            <label><input type="radio" name="q28" value="a"> 5</label>
+            <label><input type="radio" name="q28" value="b"> 12</label>
+            <label><input type="radio" name="q28" value="c"> x</label>
+            <label><input type="radio" name="q28" value="d"> Error</label>
+        </div>
+
+        <div class="question">
+            <h3>29. Which comparison operator means "greater than"?</h3>
+
+            <label><input type="radio" name="q29" value="a"> < </label>
+            <label><input type="radio" name="q29" value="b"> == </label>
+            <label><input type="radio" name="q29" value="c"> > </label>
+            <label><input type="radio" name="q29" value="d"> != </label>
+        </div>
+
+        <div class="question">
+            <h3>30. What is the output?</h3>
+
+            <pre>x = 20
+
+if x == 20:
+    print("Matched")</pre>
+
+            <label><input type="radio" name="q30" value="a"> Match</label>
+            <label><input type="radio" name="q30" value="b"> 20</label>
+            <label><input type="radio" name="q30" value="c"> Matched</label>
+            <label><input type="radio" name="q30" value="d"> Error</label>
+        </div>
+
+        <button type="button" onclick="checkAnswers()">Submit Test</button>
+
+    </form>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+</script>
 function checkAnswers(){
 
     const answers = {
@@ -113,3 +725,5 @@ function checkAnswers(){
         behavior:"smooth"
     });
 }
+</body>
+</html>
