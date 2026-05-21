@@ -6,233 +6,115 @@
     <title>Python Weekly Test - Basics to If Condition</title>
 
     <style>
-/* ================= GOOGLE FONT ================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
 
-/* ================= GLOBAL ================= */
+        body{
+            font-family: Arial, sans-serif;
+            background:#f1f5f9;
+            padding:30px;
+        }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        .container{
+            max-width:1000px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
 
-body{
-    font-family:'Poppins', sans-serif;
-    background:linear-gradient(135deg, #0f172a, #1e293b);
-    min-height:100vh;
-    padding:40px;
-    color:white;
-}
+        h1{
+            text-align:center;
+            color:#1e293b;
+            margin-bottom:10px;
+        }
 
-/* ================= CONTAINER ================= */
+        .info{
+            text-align:center;
+            margin-bottom:30px;
+            color:#555;
+        }
 
-.container{
-    max-width:1100px;
-    margin:auto;
-    background:#ffffff;
-    color:#111827;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 15px 40px rgba(0,0,0,0.3);
-}
+        .section{
+            background:#2563eb;
+            color:white;
+            padding:10px;
+            border-radius:8px;
+            margin:25px 0 15px;
+            font-size:20px;
+        }
 
-/* ================= HEADER ================= */
+        .question{
+            background:#f8fafc;
+            border:1px solid #cbd5e1;
+            padding:18px;
+            border-radius:10px;
+            margin-bottom:20px;
+        }
 
-.header{
-    background:linear-gradient(135deg, #2563eb, #7c3aed);
-    padding:40px;
-    text-align:center;
-    color:white;
-}
+        .question h3{
+            margin-bottom:12px;
+            color:#111827;
+        }
 
-.header h1{
-    font-size:42px;
-    margin-bottom:10px;
-    font-weight:700;
-}
+        label{
+            display:block;
+            margin:8px 0;
+            padding:8px;
+            border-radius:5px;
+            cursor:pointer;
+        }
 
-.header p{
-    font-size:18px;
-    opacity:0.9;
-}
+        label:hover{
+            background:#dbeafe;
+        }
 
-/* ================= TEST INFO ================= */
+        input[type="radio"]{
+            margin-right:8px;
+        }
 
-.test-info{
-    display:flex;
-    justify-content:space-around;
-    flex-wrap:wrap;
-    background:#f8fafc;
-    padding:20px;
-    border-bottom:1px solid #e2e8f0;
-}
+        pre{
+            background:#e2e8f0;
+            padding:10px;
+            border-radius:5px;
+            margin:10px 0;
+        }
 
-.info-box{
-    text-align:center;
-    margin:10px;
-}
+        button{
+            display:block;
+            width:220px;
+            margin:40px auto;
+            padding:14px;
+            border:none;
+            border-radius:8px;
+            background:#2563eb;
+            color:white;
+            font-size:18px;
+            cursor:pointer;
+        }
 
-.info-box h3{
-    color:#2563eb;
-    margin-bottom:5px;
-}
+        button:hover{
+            background:#1d4ed8;
+        }
 
-/* ================= SECTION TITLE ================= */
+        #result{
+            margin-top:30px;
+            text-align:center;
+            font-size:24px;
+            font-weight:bold;
+        }
 
-.section-title{
-    margin:35px 30px 20px;
-    padding:14px 20px;
-    background:linear-gradient(to right, #2563eb, #7c3aed);
-    color:white;
-    border-radius:12px;
-    font-size:22px;
-    font-weight:600;
-    box-shadow:0 5px 15px rgba(37,99,235,0.2);
-}
-
-/* ================= QUESTIONS ================= */
-
-.question{
-    background:#f8fafc;
-    margin:25px 30px;
-    padding:25px;
-    border-radius:16px;
-    border:2px solid transparent;
-    transition:0.3s ease;
-}
-
-.question:hover{
-    border-color:#2563eb;
-    transform:translateY(-3px);
-    box-shadow:0 8px 20px rgba(37,99,235,0.1);
-}
-
-.question h3{
-    margin-bottom:18px;
-    font-size:20px;
-    color:#111827;
-    line-height:1.5;
-}
-
-/* ================= CODE BLOCK ================= */
-
-pre{
-    background:#0f172a;
-    color:#f8fafc;
-    padding:15px;
-    border-radius:10px;
-    margin:15px 0;
-    overflow-x:auto;
-    font-size:15px;
-}
-
-/* ================= OPTIONS ================= */
-
-.option{
-    display:flex;
-    align-items:center;
-    margin:12px 0;
-    padding:14px;
-    border-radius:12px;
-    background:white;
-    border:2px solid #e2e8f0;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.option:hover{
-    background:#eff6ff;
-    border-color:#2563eb;
-}
-
-.option input{
-    margin-right:12px;
-    transform:scale(1.2);
-    accent-color:#2563eb;
-}
-
-.option span{
-    font-size:16px;
-}
-
-/* ================= BUTTON ================= */
-
-.submit-btn{
-    display:block;
-    width:260px;
-    margin:40px auto;
-    padding:16px;
-    border:none;
-    border-radius:14px;
-    background:linear-gradient(135deg, #2563eb, #7c3aed);
-    color:white;
-    font-size:20px;
-    font-weight:600;
-    cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 8px 20px rgba(37,99,235,0.3);
-}
-
-.submit-btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 12px 25px rgba(37,99,235,0.4);
-}
-
-/* ================= RESULT ================= */
-
-#result{
-    padding:30px;
-}
-
-.result-box{
-    background:linear-gradient(135deg, #dcfce7, #bbf7d0);
-    border:3px solid #22c55e;
-    border-radius:18px;
-    padding:30px;
-    text-align:center;
-    box-shadow:0 10px 25px rgba(34,197,94,0.2);
-}
-
-.result-box h2{
-    color:#065f46;
-    margin-bottom:20px;
-    font-size:34px;
-}
-
-.result-box p{
-    font-size:22px;
-    margin:12px 0;
-    color:#064e3b;
-    font-weight:600;
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:768px){
-
-    body{
-        padding:15px;
-    }
-
-    .header h1{
-        font-size:30px;
-    }
-
-    .question{
-        margin:20px 15px;
-        padding:20px;
-    }
-
-    .section-title{
-        margin:25px 15px 15px;
-    }
-
-    .submit-btn{
-        width:90%;
-    }
-}
+        .result-box{
+            background:#ecfdf5;
+            border:2px solid #10b981;
+            padding:20px;
+            border-radius:10px;
+        }
 
     </style>
 
@@ -609,10 +491,10 @@ if x == 20:
 </div>
 
 <script>
-</script>
+
 function checkAnswers(){
 
-    const answers = {
+    let answers = {
 
         q1:"b",
         q2:"c",
@@ -650,29 +532,20 @@ function checkAnswers(){
 
     let score = 0;
 
-    // Check answers
-
     for(let key in answers){
 
-        let selected = document.querySelector(`input[name="${key}"]:checked`);
+        let selected = document.querySelector('input[name="'+key+'"]:checked');
 
         if(selected && selected.value === answers[key]){
             score++;
         }
     }
 
-    // Percentage
-
     let percentage = (score / 30) * 100;
-
-    // Grade
 
     let grade = "";
 
-    if(percentage >= 90){
-        grade = "A+";
-    }
-    else if(percentage >= 80){
+    if(percentage >= 80){
         grade = "A";
     }
     else if(percentage >= 70){
@@ -688,42 +561,21 @@ function checkAnswers(){
         grade = "Fail";
     }
 
-    // Performance Message
-
-    let message = "";
-
-    if(percentage >= 80){
-        message = "Excellent Work 🎉";
-    }
-    else if(percentage >= 60){
-        message = "Good Job 👍";
-    }
-    else{
-        message = "Need More Practice 📚";
-    }
-
-    // Display Result
-
     document.getElementById("result").innerHTML = `
 
         <div class="result-box">
 
-            <h2>${message}</h2>
+            Your Score: ${score} / 30 <br><br>
 
-            <p>Score: ${score} / 30</p>
+            Percentage: ${percentage.toFixed(2)}% <br><br>
 
-            <p>Percentage: ${percentage.toFixed(2)}%</p>
-
-            <p>Grade: ${grade}</p>
+            Grade: ${grade}
 
         </div>
     `;
-
-    // Scroll to result
-
-    document.getElementById("result").scrollIntoView({
-        behavior:"smooth"
-    });
 }
+
+</script>
+
 </body>
 </html>
