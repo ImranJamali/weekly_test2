@@ -6,7 +6,6 @@
     <title>Python Weekly Test - Basics to If Condition</title>
 
     <style>
-
         *{
             margin:0;
             padding:0;
@@ -55,6 +54,7 @@
             padding:18px;
             border-radius:10px;
             margin-bottom:20px;
+            transition: all 0.3s ease;
         }
 
         .question h3{
@@ -102,6 +102,25 @@
             background:#1d4ed8;
         }
 
+        /* --- NEW STYLES FOR CORRECT ANSWERS --- */
+        .correct-label {
+            background: #d1fae5 !important;
+            border: 1px solid #10b981;
+            font-weight: bold;
+            color: #065f46;
+        }
+
+        .wrong-label {
+            background: #fee2e2 !important;
+            border: 1px solid #ef4444;
+        }
+
+        .feedback-text {
+            margin-top: 10px;
+            font-weight: bold;
+            display: none;
+        }
+
         #result{
             margin-top:30px;
             text-align:center;
@@ -119,11 +138,9 @@
     </style>
 
 </head>
-
 <body>
 
 <div class="container">
-
     <h1>Python Weekly Test</h1>
 
     <div class="info">
@@ -133,352 +150,268 @@
 
     <form id="quizForm">
 
-        <!-- ================= BASICS ================= -->
-
         <div class="section">Part 1 — Python Basics</div>
 
-        <div class="question">
+        <div class="question" id="div-q1">
             <h3>1. Python is a ______ programming language.</h3>
-
             <label><input type="radio" name="q1" value="a"> Low level</label>
-            <label><input type="radio" name="q1" value="b"> High level</label>
+            <label data-correct="true"><input type="radio" name="q1" value="b"> High level</label>
             <label><input type="radio" name="q1" value="c"> Machine</label>
             <label><input type="radio" name="q1" value="d"> Binary</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q2">
             <h3>2. Which function is used to display output?</h3>
-
             <label><input type="radio" name="q2" value="a"> input()</label>
             <label><input type="radio" name="q2" value="b"> display()</label>
-            <label><input type="radio" name="q2" value="c"> print()</label>
+            <label data-correct="true"><input type="radio" name="q2" value="c"> print()</label>
             <label><input type="radio" name="q2" value="d"> show()</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q3">
             <h3>3. What is the datatype of:</h3>
-
             <pre>x = 5.7</pre>
-
             <label><input type="radio" name="q3" value="a"> int</label>
             <label><input type="radio" name="q3" value="b"> str</label>
             <label><input type="radio" name="q3" value="c"> bool</label>
-            <label><input type="radio" name="q3" value="d"> float</label>
+            <label data-correct="true"><input type="radio" name="q3" value="d"> float</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q4">
             <h3>4. Which variable name is correct?</h3>
-
             <label><input type="radio" name="q4" value="a"> 1name</label>
             <label><input type="radio" name="q4" value="b"> my-name</label>
-            <label><input type="radio" name="q4" value="c"> student_name</label>
+            <label data-correct="true"><input type="radio" name="q4" value="c"> student_name</label>
             <label><input type="radio" name="q4" value="d"> class</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q5">
             <h3>5. What is the output?</h3>
-
             <pre>print(type("Ali"))</pre>
-
             <label><input type="radio" name="q5" value="a"> int</label>
             <label><input type="radio" name="q5" value="b"> float</label>
-            <label><input type="radio" name="q5" value="c"> str</label>
+            <label data-correct="true"><input type="radio" name="q5" value="c"> str</label>
             <label><input type="radio" name="q5" value="d"> bool</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q6">
             <h3>6. Which function converts data into integer?</h3>
-
             <label><input type="radio" name="q6" value="a"> float()</label>
-            <label><input type="radio" name="q6" value="b"> int()</label>
+            <label data-correct="true"><input type="radio" name="q6" value="b"> int()</label>
             <label><input type="radio" name="q6" value="c"> str()</label>
             <label><input type="radio" name="q6" value="d"> bool()</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q7">
             <h3>7. What is the output?</h3>
-
             <pre>print(int(4.9))</pre>
-
             <label><input type="radio" name="q7" value="a"> 5</label>
             <label><input type="radio" name="q7" value="b"> 4.9</label>
-            <label><input type="radio" name="q7" value="c"> 4</label>
+            <label data-correct="true"><input type="radio" name="q7" value="c"> 4</label>
             <label><input type="radio" name="q7" value="d"> Error</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q8">
             <h3>8. Which function takes input from the user?</h3>
-
             <label><input type="radio" name="q8" value="a"> print()</label>
-            <label><input type="radio" name="q8" value="b"> input()</label>
+            <label data-correct="true"><input type="radio" name="q8" value="b"> input()</label>
             <label><input type="radio" name="q8" value="c"> show()</label>
             <label><input type="radio" name="q8" value="d"> scan()</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q9">
             <h3>9. What is the datatype of True?</h3>
-
             <label><input type="radio" name="q9" value="a"> int</label>
-            <label><input type="radio" name="q9" value="b"> bool</label>
+            <label data-correct="true"><input type="radio" name="q9" value="b"> bool</label>
             <label><input type="radio" name="q9" value="c"> float</label>
             <label><input type="radio" name="q9" value="d"> string</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q10">
             <h3>10. Which symbol is used for comments in Python?</h3>
-
             <label><input type="radio" name="q10" value="a"> // </label>
             <label><input type="radio" name="q10" value="b"> /* */</label>
-            <label><input type="radio" name="q10" value="c"> #</label>
+            <label data-correct="true"><input type="radio" name="q10" value="c"> #</label>
             <label><input type="radio" name="q10" value="d"> --</label>
         </div>
 
-        <!-- ================= OPERATORS ================= -->
-
         <div class="section">Part 2 — Operators</div>
 
-        <div class="question">
+        <div class="question" id="div-q11">
             <h3>11. What is the output?</h3>
-
             <pre>print(10 + 5 * 2)</pre>
-
             <label><input type="radio" name="q11" value="a"> 30</label>
-            <label><input type="radio" name="q11" value="b"> 20</label>
+            <label data-correct="true"><input type="radio" name="q11" value="b"> 20</label>
             <label><input type="radio" name="q11" value="c"> 25</label>
             <label><input type="radio" name="q11" value="d"> 15</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q12">
             <h3>12. What is the output?</h3>
-
             <pre>print(17 % 3)</pre>
-
             <label><input type="radio" name="q12" value="a"> 5</label>
-            <label><input type="radio" name="q12" value="b"> 2</label>
+            <label data-correct="true"><input type="radio" name="q12" value="b"> 2</label>
             <label><input type="radio" name="q12" value="c"> 1</label>
             <label><input type="radio" name="q12" value="d"> 17</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q13">
             <h3>13. Which operator is used for power?</h3>
-
             <label><input type="radio" name="q13" value="a"> *</label>
-            <label><input type="radio" name="q13" value="b"> **</label>
+            <label data-correct="true"><input type="radio" name="q13" value="b"> **</label>
             <label><input type="radio" name="q13" value="c"> //</label>
             <label><input type="radio" name="q13" value="d"> %</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q14">
             <h3>14. What is the output?</h3>
-
             <pre>print(20 // 6)</pre>
-
-            <label><input type="radio" name="q14" value="a"> 3</label>
+            <label data-correct="true"><input type="radio" name="q14" value="a"> 3</label>
             <label><input type="radio" name="q14" value="b"> 3.3</label>
             <label><input type="radio" name="q14" value="c"> 2</label>
             <label><input type="radio" name="q14" value="d"> 4</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q15">
             <h3>15. What is the output?</h3>
-
             <pre>print(5 == "5")</pre>
-
             <label><input type="radio" name="q15" value="a"> True</label>
-            <label><input type="radio" name="q15" value="b"> False</label>
+            <label data-correct="true"><input type="radio" name="q15" value="b"> False</label>
             <label><input type="radio" name="q15" value="c"> Error</label>
             <label><input type="radio" name="q15" value="d"> None</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q16">
             <h3>16. What is the output?</h3>
-
             <pre>print(True and False)</pre>
-
             <label><input type="radio" name="q16" value="a"> True</label>
-            <label><input type="radio" name="q16" value="b"> False</label>
+            <label data-correct="true"><input type="radio" name="q16" value="b"> False</label>
             <label><input type="radio" name="q16" value="c"> Error</label>
             <label><input type="radio" name="q16" value="d"> None</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q17">
             <h3>17. What is the output?</h3>
-
-            <pre>x = 5
-x += 2
-print(x)</pre>
-
+            <pre>x = 5; x += 2; print(x)</pre>
             <label><input type="radio" name="q17" value="a"> 5</label>
             <label><input type="radio" name="q17" value="b"> 2</label>
-            <label><input type="radio" name="q17" value="c"> 7</label>
+            <label data-correct="true"><input type="radio" name="q17" value="c"> 7</label>
             <label><input type="radio" name="q17" value="d"> Error</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q18">
             <h3>18. Which operator means "not equal to"?</h3>
-
             <label><input type="radio" name="q18" value="a"> ==</label>
             <label><input type="radio" name="q18" value="b"> =</label>
-            <label><input type="radio" name="q18" value="c"> !=</label>
+            <label data-correct="true"><input type="radio" name="q18" value="c"> !=</label>
             <label><input type="radio" name="q18" value="d"> >=</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q19">
             <h3>19. What is the output?</h3>
-
             <pre>print(not(True))</pre>
-
             <label><input type="radio" name="q19" value="a"> True</label>
-            <label><input type="radio" name="q19" value="b"> False</label>
+            <label data-correct="true"><input type="radio" name="q19" value="b"> False</label>
             <label><input type="radio" name="q19" value="c"> Error</label>
             <label><input type="radio" name="q19" value="d"> None</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q20">
             <h3>20. What is the output?</h3>
-
             <pre>print(2 * "Hi")</pre>
-
-            <label><input type="radio" name="q20" value="a"> HiHi</label>
+            <label data-correct="true"><input type="radio" name="q20" value="a"> HiHi</label>
             <label><input type="radio" name="q20" value="b"> Hi2</label>
             <label><input type="radio" name="q20" value="c"> Error</label>
             <label><input type="radio" name="q20" value="d"> 4</label>
         </div>
 
-        <!-- ================= IF CONDITIONS ================= -->
-
         <div class="section">Part 3 — If Conditions</div>
 
-        <div class="question">
+        <div class="question" id="div-q21">
             <h3>21. What is the output?</h3>
-
-            <pre>x = 7
-
-if x > 5:
-    print("Yes")</pre>
-
-            <label><input type="radio" name="q21" value="a"> Yes</label>
+            <pre>x = 7; if x > 5: print("Yes")</pre>
+            <label data-correct="true"><input type="radio" name="q21" value="a"> Yes</label>
             <label><input type="radio" name="q21" value="b"> No</label>
             <label><input type="radio" name="q21" value="c"> Error</label>
             <label><input type="radio" name="q21" value="d"> Nothing</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q22">
             <h3>22. What is the output?</h3>
-
-            <pre>x = 2
-
-if x > 5:
-    print("Big")</pre>
-
+            <pre>x = 2; if x > 5: print("Big")</pre>
             <label><input type="radio" name="q22" value="a"> Big</label>
             <label><input type="radio" name="q22" value="b"> 2</label>
-            <label><input type="radio" name="q22" value="c"> Nothing</label>
+            <label data-correct="true"><input type="radio" name="q22" value="c"> Nothing</label>
             <label><input type="radio" name="q22" value="d"> Error</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q23">
             <h3>23. Which statement is used for decision making?</h3>
-
             <label><input type="radio" name="q23" value="a"> loop</label>
-            <label><input type="radio" name="q23" value="b"> if</label>
+            <label data-correct="true"><input type="radio" name="q23" value="b"> if</label>
             <label><input type="radio" name="q23" value="c"> print</label>
             <label><input type="radio" name="q23" value="d"> input</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q24">
             <h3>24. What is the output?</h3>
-
-            <pre>x = 10
-
-if x >= 10:
-    print("Correct")</pre>
-
-            <label><input type="radio" name="q24" value="a"> Correct</label>
+            <pre>x = 10; if x >= 10: print("Correct")</pre>
+            <label data-correct="true"><input type="radio" name="q24" value="a"> Correct</label>
             <label><input type="radio" name="q24" value="b"> Wrong</label>
             <label><input type="radio" name="q24" value="c"> 10</label>
             <label><input type="radio" name="q24" value="d"> Error</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q25">
             <h3>25. What is the output?</h3>
-
-            <pre>x = 9
-
-if x % 2 == 0:
-    print("Even")</pre>
-
+            <pre>x = 9; if x % 2 == 0: print("Even")</pre>
             <label><input type="radio" name="q25" value="a"> Even</label>
             <label><input type="radio" name="q25" value="b"> Odd</label>
-            <label><input type="radio" name="q25" value="c"> Nothing</label>
+            <label data-correct="true"><input type="radio" name="q25" value="c"> Nothing</label>
             <label><input type="radio" name="q25" value="d"> Error</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q26">
             <h3>26. What is the output?</h3>
-
-            <pre>x = 15
-
-if x > 10 and x < 20:
-    print("Valid")</pre>
-
-            <label><input type="radio" name="q26" value="a"> Valid</label>
+            <pre>x = 15; if x > 10 and x < 20: print("Valid")</pre>
+            <label data-correct="true"><input type="radio" name="q26" value="a"> Valid</label>
             <label><input type="radio" name="q26" value="b"> Invalid</label>
             <label><input type="radio" name="q26" value="c"> Error</label>
             <label><input type="radio" name="q26" value="d"> Nothing</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q27">
             <h3>27. What is the output?</h3>
-
-            <pre>x = 5
-
-if x < 3:
-    print("A")
-
-if x > 3:
-    print("B")</pre>
-
+            <pre>x = 5; if x < 3: print("A"); if x > 3: print("B")</pre>
             <label><input type="radio" name="q27" value="a"> A</label>
-            <label><input type="radio" name="q27" value="b"> B</label>
+            <label data-correct="true"><input type="radio" name="q27" value="b"> B</label>
             <label><input type="radio" name="q27" value="c"> A B</label>
             <label><input type="radio" name="q27" value="d"> Nothing</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q28">
             <h3>28. What is the output?</h3>
-
-            <pre>x = 12
-
-if x > 5:
-    print(x)</pre>
-
+            <pre>x = 12; if x > 5: print(x)</pre>
             <label><input type="radio" name="q28" value="a"> 5</label>
-            <label><input type="radio" name="q28" value="b"> 12</label>
+            <label data-correct="true"><input type="radio" name="q28" value="b"> 12</label>
             <label><input type="radio" name="q28" value="c"> x</label>
             <label><input type="radio" name="q28" value="d"> Error</label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q29">
             <h3>29. Which comparison operator means "greater than"?</h3>
-
             <label><input type="radio" name="q29" value="a"> < </label>
             <label><input type="radio" name="q29" value="b"> == </label>
-            <label><input type="radio" name="q29" value="c"> > </label>
+            <label data-correct="true"><input type="radio" name="q29" value="c"> > </label>
             <label><input type="radio" name="q29" value="d"> != </label>
         </div>
 
-        <div class="question">
+        <div class="question" id="div-q30">
             <h3>30. What is the output?</h3>
-
-            <pre>x = 20
-
-if x == 20:
-    print("Matched")</pre>
-
+            <pre>x = 20; if x == 20: print("Matched")</pre>
             <label><input type="radio" name="q30" value="a"> Match</label>
             <label><input type="radio" name="q30" value="b"> 20</label>
-            <label><input type="radio" name="q30" value="c"> Matched</label>
+            <label data-correct="true"><input type="radio" name="q30" value="c"> Matched</label>
             <label><input type="radio" name="q30" value="d"> Error</label>
         </div>
 
@@ -491,90 +424,61 @@ if x == 20:
 </div>
 
 <script>
-
 function checkAnswers(){
-
     let answers = {
-
-        q1:"b",
-        q2:"c",
-        q3:"d",
-        q4:"c",
-        q5:"c",
-        q6:"b",
-        q7:"c",
-        q8:"b",
-        q9:"b",
-        q10:"c",
-
-        q11:"b",
-        q12:"b",
-        q13:"b",
-        q14:"a",
-        q15:"b",
-        q16:"b",
-        q17:"c",
-        q18:"c",
-        q19:"b",
-        q20:"a",
-
-        q21:"a",
-        q22:"c",
-        q23:"b",
-        q24:"a",
-        q25:"c",
-        q26:"a",
-        q27:"b",
-        q28:"b",
-        q29:"c",
-        q30:"c"
+        q1:"b", q2:"c", q3:"d", q4:"c", q5:"c", q6:"b", q7:"c", q8:"b", q9:"b", q10:"c",
+        q11:"b", q12:"b", q13:"b", q14:"a", q15:"b", q16:"b", q17:"c", q18:"c", q19:"b", q20:"a",
+        q21:"a", q22:"c", q23:"b", q24:"a", q25:"c", q26:"a", q27:"b", q28:"b", q29:"c", q30:"c"
     };
 
     let score = 0;
 
+    // Reset styles from previous submissions
+    document.querySelectorAll('.question label').forEach(label => {
+        label.classList.remove('correct-label', 'wrong-label');
+    });
+
     for(let key in answers){
-
+        let questionDiv = document.getElementById("div-" + key);
         let selected = document.querySelector('input[name="'+key+'"]:checked');
+        let correctLabel = questionDiv.querySelector('label[data-correct="true"]');
 
-        if(selected && selected.value === answers[key]){
-            score++;
+        // Mark the correct answer for every question
+        if (correctLabel) {
+            correctLabel.classList.add('correct-label');
+        }
+
+        if(selected){
+            if(selected.value === answers[key]){
+                score++;
+            } else {
+                // If user selected the wrong one, mark it red
+                selected.parentElement.classList.add('wrong-label');
+            }
         }
     }
 
     let percentage = (score / 30) * 100;
-
     let grade = "";
 
-    if(percentage >= 80){
-        grade = "A";
-    }
-    else if(percentage >= 70){
-        grade = "B";
-    }
-    else if(percentage >= 60){
-        grade = "C";
-    }
-    else if(percentage >= 50){
-        grade = "D";
-    }
-    else{
-        grade = "Fail";
-    }
+    if(percentage >= 80) grade = "A";
+    else if(percentage >= 70) grade = "B";
+    else if(percentage >= 60) grade = "C";
+    else if(percentage >= 50) grade = "D";
+    else grade = "Fail";
 
     document.getElementById("result").innerHTML = `
-
         <div class="result-box">
-
             Your Score: ${score} / 30 <br><br>
-
             Percentage: ${percentage.toFixed(2)}% <br><br>
-
-            Grade: ${grade}
-
+            Grade: ${grade} <br><br>
+            <small>Correct answers are highlighted in Green. Incorrect choices are in Red.</small>
         </div>
     `;
-}
 
+    // Scroll to top to see result
+    window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
+}
 </script>
 
 </body>
